@@ -65,7 +65,7 @@ User.findOne({_id:"6649c6207a8c0f1b45ca295f"}).then((res)=>{
 
 
 // updateOne and updateMany : updateOne will update the first value and updateMany will update all the values
-
+// findOneAndUpdate
 User.updateOne({name:"steven"}, {age:25}).then((res)=>{
     console.log(res);
 }).catch((err)=>{console.log(err)})
@@ -75,3 +75,12 @@ User.updateOne({name:"steven"}, {age:25}).then((res)=>{
 User.updateMany({age:{$gt:25}}, {age:35}).then((res)=>{
     console.log(res);
 }).catch((err)=>{console.log(err)})
+
+
+// fineOneAndUpdate will find and print then it will update , if we want to print the updated value will give new: true ,
+// the main difference b/w findOneAndUpdate and findOne is findOneAndUpdate will not give any additional information like modified =2 etc etc where as findOne will give
+User.findOneAndUpdate({name: "tony"}, {age:35}, {new:true}).then((res)=>{
+    console.log(res);
+}).catch((err)=>{console.log(err)})
+
+// deleteOne , deleteById, findByIdAndDelete, findOneAndDelete
