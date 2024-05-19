@@ -47,6 +47,31 @@ User.insertMany([
 
 // find operation : its not a promise but still we can use .then
 
-User.find({age:{$gt:29}}).then((res)=>{
-    console.log(res)  // or  we can also filter the data which is coming like this console.log(res[0].name) this will give the name
-}).catch((err)=>console.log(err));
+// User.find({age:{$gt:29}}).then((res)=>{
+//     console.log(res)  // or  we can also filter the data which is coming like this console.log(res[0].name) this will give the name
+// }).catch((err)=>console.log(err));
+
+//findOne :  it will find only one user 
+//findById : finding the user by his Id 
+
+// User.findById("6649c6207a8c0f1b45ca295f").then((res)=>{
+//     console.log(res);
+// }).catch((err)=>{console.log(err)})
+
+
+User.findOne({_id:"6649c6207a8c0f1b45ca295f"}).then((res)=>{
+    console.log(res);
+}).catch((err)=>{console.log(err)})
+
+
+// updateOne and updateMany : updateOne will update the first value and updateMany will update all the values
+
+User.updateOne({name:"steven"}, {age:25}).then((res)=>{
+    console.log(res);
+}).catch((err)=>{console.log(err)})
+
+
+
+User.updateMany({age:{$gt:25}}, {age:35}).then((res)=>{
+    console.log(res);
+}).catch((err)=>{console.log(err)})
